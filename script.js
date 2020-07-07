@@ -41,6 +41,7 @@ startGame()
 function setWord(e) {
     e.preventDefault()
     
+    wordString = wordBlank.value
     word = wordBlank.value.toLowerCase().split("")
     chances = chanceBlank.value
     remaining.innerText = chances
@@ -131,6 +132,8 @@ function checkForWinner(){
         guessForm.removeEventListener("submit", submitGuess)
     }
     else if (correctGuesses.length < word.length && chances == 0){
+        let message = document.querySelector("#loss-message")
+        message.innerText = wordString
         loserModal.style.display = "block"
         guessForm.removeEventListener("submit", submitGuess)
     }
