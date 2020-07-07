@@ -2,6 +2,7 @@ let startButton = document.querySelector("#start-button")
 let startGameModal = document.querySelector("#start-game-modal")
 let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
+let boardGrid = document.querySelector("#board-grid")
 
 let word = []
 
@@ -25,6 +26,23 @@ function setWord(e) {
     e.preventDefault()
     
     word = wordBlank.value.toLowerCase().split("")
+
+    createBoard()
 }
 wordForm.addEventListener("submit", setWord)
 
+//CREATE GAME BOARD FROM WORD
+
+function createBoard(){
+
+    wordForm.style.display = "none"
+
+    word.forEach(n => {
+
+        let blank = document.createElement("div")
+        blank.classList.add("letter-blank")
+        //blank.innerHTML = n
+        boardGrid.appendChild(blank)
+
+    })
+}
