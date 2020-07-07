@@ -3,6 +3,8 @@ let startGameModal = document.querySelector("#start-game-modal")
 let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
 let boardGrid = document.querySelector("#board-grid")
+let guessForm = document.querySelector("#guess-form")
+
 
 let word = []
 
@@ -44,5 +46,8 @@ function createBoard(){
         //blank.innerHTML = n
         boardGrid.appendChild(blank)
 
+        guessForm.style.display = "block"
     })
 }
+
+//GUESS LOGIC

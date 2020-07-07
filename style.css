@@ -80,25 +80,52 @@ button {
 
 #board {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
 }
 
 #board-grid {
-    height: 30%;
+    height: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+    flex-wrap: wrap;
 
 }
 
 .letter-blank {
-    height: 100%;
-    width: 10%;
-    margin: 2% 1%;
+    height: 90%;
+    width: 8%;
+    margin: 0 1%;
     border-bottom: 2px solid #000000;
 
     font-size: 90px;
 
 }
 
-#guess {
+#guess-form {
+    height: 20%;
     display: none;
+}
+#guess-form input {
+    width: 8%;
+}
+
+#keyboard {
+    height: 30%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.letter {
+    width: 3%;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin: .25% .25%;
+    border: 2px solid #000000;
+
 }
