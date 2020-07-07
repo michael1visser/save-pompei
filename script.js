@@ -4,6 +4,8 @@ let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
 let boardGrid = document.querySelector("#board-grid")
 let guessForm = document.querySelector("#guess-form")
+let guessBlank = document.querySelector("#guess-blank")
+//let letterKeys = document.querySelectorAll(".letter")
 
 
 let word = []
@@ -50,4 +52,11 @@ function createBoard(){
     })
 }
 
+//ON-SCREEN KEYBOARD PICKUP
+function typeKey(e){
+    guessBlank.value = e.target.dataset.key
+}
+board.addEventListener("click", typeKey)
+
 //GUESS LOGIC
+

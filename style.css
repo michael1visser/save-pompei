@@ -127,5 +127,6 @@ button {
     text-transform: uppercase;
     margin: .25% .25%;
     border: 2px solid #000000;
+    cursor: pointer;
 
 }
