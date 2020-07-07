@@ -1,0 +1,35 @@
+** SAVE POMPEI **
+
+GAME BASICS - User enters the game word. Other users attempt to guess the game word using the keyboard or a clickable keyboard on screen. The user wins when they guess the word and lose when the lava reaches Pompei.
+
+
+GAME SECTIONS - 
+
+* Start Game - Initial page displayed when the user lands on the page. Should include game instructions and a start button.
+            - HTML: Start button, instructions.
+            - JS: Button functionality. 
+
+* Enter word - A user types a word and submits.
+            - HTML: entry blank with placeholder instructions. Button
+            - JS: Form submission functionality - Store form string as array
+
+* Display Board - 
+            - HTML: Game board, remaining guesses, submission form
+            - JS: game board generation - generate elements based on array length. 
+                  
+                  keyboard generation - generate UI keyboard and attach keydown/up listeners.
+
+* Play Game - guess letters until win/lose
+            - JS: Check guess - check submitted value against array. If exists,    display all instances, if does not exist, decrease remaining chances.
+
+* Win/Lose Game - If all letters are guessed or chances run out, declare winner 
+                or loser.
+                - HTML: Win/Loss Modal, Play again button
+                - JS: Check for winner, reset game. 
+
+
+ADDITIONAL FEATURES
+
+Allow user to set number of chances
+add timer (configurable)
+handling for multiple players and saved scores. Ability to set total winning score.
