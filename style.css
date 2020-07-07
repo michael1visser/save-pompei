@@ -80,7 +80,7 @@ button {
 
 #board {
     height: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     
@@ -95,18 +95,20 @@ button {
 }
 
 .letter-blank {
-    height: 90%;
+    height: 80%;
     width: 8%;
     margin: 0 1%;
     border-bottom: 2px solid #000000;
 
     font-size: 90px;
+    text-transform: uppercase;
+    
 
 }
 
 #guess-form {
     height: 20%;
-    display: none;
+    
 }
 #guess-form input {
     width: 8%;

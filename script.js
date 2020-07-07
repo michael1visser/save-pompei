@@ -7,9 +7,13 @@ let guessForm = document.querySelector("#guess-form")
 let guessBlank = document.querySelector("#guess-blank")
 let guessButton = document.querySelector("#guess-button")
 
+let letterBlanks = ""
+
 
 let word = []
-let currentGuess = "a"
+let currentGuess = ""
+let correctGuesses = []
+let incorrectGuesses = []
 
 // START THE GAME
 function startGame() {
@@ -26,6 +30,7 @@ startGameModal.addEventListener("click", e => {
     }
 })
 startGame()
+
 //CAPTURE ENTERED WORD AS ARRAY
 function setWord(e) {
     e.preventDefault()
@@ -42,22 +47,23 @@ function createBoard(){
 
     wordForm.style.display = "none"
 
-    word.forEach(n => {
+    word.forEach((n,i) => {
 
         let blank = document.createElement("div")
         blank.classList.add("letter-blank")
-        //blank.innerHTML = n
+        blank.dataset.position = i
         boardGrid.appendChild(blank)
-
-        guessForm.style.display = "block"
     })
+    letterBlanks = document.querySelectorAll(".letter-blank")
+
+    board.style.display = "flex"
 }
 
 //ON-SCREEN KEYBOARD PICKUP
 function typeKey(e){
     if (e.target.classList.contains("letter")){
     guessBlank.value = e.target.dataset.key
-    console.log(guessBlank.value)
+    //console.log(guessBlank.value)
     }
 }
 board.addEventListener("click", typeKey)
@@ -67,8 +73,26 @@ board.addEventListener("click", typeKey)
 function submitGuess(e){
     e.preventDefault()
     currentGuess = guessBlank.value.toLowerCase()
-    console.log(currentGuess)
+    //console.log(currentGuess)
+    checkGuess()
 }
 guessForm.addEventListener("submit", submitGuess)
+
 //GUESS LOGIC
+
+function checkGuess(){
+
+    word.forEach((n,i) => {
+        console.log("checking")
+        if (currentGuess == n ){
+            letterBlanks[i].innerText = n
+            correctGuesses.push(n)
+            console.log(`Correct: ${correctGuesses}`)
+        }
+        else {
+            incorrectGuesses.push(n)
+            console.log(`Incorrect: ${incorrectGuesses}`)
+        }
+        })
+}
 
