@@ -6,6 +6,7 @@ let boardGrid = document.querySelector("#board-grid")
 let guessForm = document.querySelector("#guess-form")
 let guessBlank = document.querySelector("#guess-blank")
 let guessButton = document.querySelector("#guess-button")
+let incorrectGuessList = document.querySelector("#incorrect-guess-list")
 
 let letterBlanks = ""
 
@@ -74,13 +75,13 @@ function submitGuess(e){
     e.preventDefault()
     currentGuess = guessBlank.value.toLowerCase()
     //console.log(currentGuess)
-    checkGuess()
+    checkGuess(currentGuess)
 }
 guessForm.addEventListener("submit", submitGuess)
 
 //GUESS LOGIC
 
-function checkGuess(){
+function checkGuess(guess){
     let correct = 0
 
     word.forEach((n,i) => {
@@ -92,12 +93,20 @@ function checkGuess(){
         })
     
     if (correct > 0){
-        correctGuesses.push(currentGuess)
+        correctGuesses.push(guess)
             console.log(`Correct: ${correctGuesses}`)
     }
     else {
-        incorrectGuesses.push(currentGuess)
+        incorrectGuesses.push(guess)
         console.log(`Incorrect: ${incorrectGuesses}`)
+        logIncorrect(guess)
     }
+}
+
+function logIncorrect(guess){
+    let add = document.createElement("li")
+    add.innerText = guess
+    incorrectGuessList.appendChild(add)
+
 }
 

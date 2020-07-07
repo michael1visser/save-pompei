@@ -132,3 +132,16 @@ button {
     cursor: pointer;
 
 }
+
+#incorrect-guess-list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    
+}
+
+#incorrect-guess-list li {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 1% 3%;
+}
