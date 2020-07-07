@@ -3,7 +3,7 @@
 }
 
 body {
-    width: 100vw;
+    width: 99vw;
     height: 100vh;
 
     display: grid;
@@ -71,11 +71,15 @@ button {
 
 #word-form {
     display: none;
-    margin-top: 5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
 }
 
-#word-form input {
-    font-size: 30px;
+#word-form input { 
+    margin: 1% 2%;
+    font-size: 24px;
 }
 
 #board {

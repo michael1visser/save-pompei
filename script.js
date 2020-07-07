@@ -2,16 +2,19 @@ let startButton = document.querySelector("#start-button")
 let startGameModal = document.querySelector("#start-game-modal")
 let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
+let chanceBlank = document.querySelector("#chance-blank")
 let boardGrid = document.querySelector("#board-grid")
 let guessForm = document.querySelector("#guess-form")
 let guessBlank = document.querySelector("#guess-blank")
 let guessButton = document.querySelector("#guess-button")
 let incorrectGuessList = document.querySelector("#incorrect-guess-list")
+let remaining = document.querySelector("#remaining")
 
 let letterBlanks = ""
 
 
 let word = []
+let chances = 0
 let currentGuess = ""
 let correctGuesses = []
 let incorrectGuesses = []
@@ -37,6 +40,8 @@ function setWord(e) {
     e.preventDefault()
     
     word = wordBlank.value.toLowerCase().split("")
+    chances = chanceBlank.value
+    remaining.innerText = chances
 
     createBoard()
 }
@@ -101,8 +106,11 @@ function checkGuess(guess){
         console.log(`Incorrect: ${incorrectGuesses}`)
         logIncorrect(guess)
     }
+    chances--
+    remaining.innerText = chances
 }
 
+//ADD INCORRECT GUESSES TO THE DISPLAY
 function logIncorrect(guess){
     let add = document.createElement("li")
     add.innerText = guess
