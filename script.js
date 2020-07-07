@@ -11,6 +11,8 @@ let guessBlank = document.querySelector("#guess-blank")
 let guessButton = document.querySelector("#guess-button")
 let incorrectGuessList = document.querySelector("#incorrect-guess-list")
 let remaining = document.querySelector("#remaining")
+let footer = document.querySelector("footer")
+
 
 let letterBlanks = ""
 
@@ -20,6 +22,10 @@ let chances = 0
 let currentGuess = ""
 let correctGuesses = []
 let incorrectGuesses = []
+
+let lava = document.querySelector("#lava")
+let lavaWidth = 20
+let increaseInterval = 0
 
 // START THE GAME
 function startGame() {
@@ -45,6 +51,7 @@ function setWord(e) {
     word = wordBlank.value.toLowerCase().split("")
     chances = chanceBlank.value
     remaining.innerText = chances
+    increaseInterval = 70/chances
 
     createBoard()
 }
@@ -110,8 +117,14 @@ function checkGuess(guess){
         incorrectGuesses.push(guess)
         console.log(`Incorrect: ${incorrectGuesses}`)
         logIncorrect(guess)
+
+        lavaWidth = lavaWidth + increaseInterval
+        lava.style.width = `${lavaWidth}%`
+        console.log(lavaWidth)
+        chances--
+
     }
-    chances--
+    
     remaining.innerText = chances
 
     checkForWinner()
@@ -136,5 +149,8 @@ function checkForWinner(){
         message.innerText = wordString
         loserModal.style.display = "block"
         guessForm.removeEventListener("submit", submitGuess)
+        footer.style.backgroundImage = "url(/images/pompeii-after.png)"
     }
 }
+
+//RESET GAME

@@ -65,7 +65,8 @@ footer {
     width: 20%;
     height: 95%;
     float: left;
-    
+    transition-property: width;
+    transition-duration: 2000ms;
 
     
 
