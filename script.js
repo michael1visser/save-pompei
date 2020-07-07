@@ -1,5 +1,7 @@
 let startButton = document.querySelector("#start-button")
 let startGameModal = document.querySelector("#start-game-modal")
+let winnerModal = document.querySelector("#winner-modal")
+let loserModal = document.querySelector("#loser-modal")
 let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
 let chanceBlank = document.querySelector("#chance-blank")
@@ -98,7 +100,9 @@ function checkGuess(guess){
         })
     
     if (correct > 0){
-        correctGuesses.push(guess)
+        for (let i=0; i<correct; i++){
+            correctGuesses.push(guess)
+        }
             console.log(`Correct: ${correctGuesses}`)
     }
     else {
@@ -108,6 +112,8 @@ function checkGuess(guess){
     }
     chances--
     remaining.innerText = chances
+
+    checkForWinner()
 }
 
 //ADD INCORRECT GUESSES TO THE DISPLAY
@@ -118,3 +124,14 @@ function logIncorrect(guess){
 
 }
 
+//CHECK FOR WINNER
+function checkForWinner(){
+    if(correctGuesses.length == word.length){
+        winnerModal.style.display = "block"
+        guessForm.removeEventListener("submit", submitGuess)
+    }
+    else if (correctGuesses.length < word.length && chances == 0){
+        loserModal.style.display = "block"
+        guessForm.removeEventListener("submit", submitGuess)
+    }
+}
