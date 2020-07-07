@@ -81,18 +81,23 @@ guessForm.addEventListener("submit", submitGuess)
 //GUESS LOGIC
 
 function checkGuess(){
+    let correct = 0
 
     word.forEach((n,i) => {
         console.log("checking")
         if (currentGuess == n ){
             letterBlanks[i].innerText = n
-            correctGuesses.push(n)
-            console.log(`Correct: ${correctGuesses}`)
-        }
-        else {
-            incorrectGuesses.push(n)
-            console.log(`Incorrect: ${incorrectGuesses}`)
+            correct++
         }
         })
+    
+    if (correct > 0){
+        correctGuesses.push(currentGuess)
+            console.log(`Correct: ${correctGuesses}`)
+    }
+    else {
+        incorrectGuesses.push(currentGuess)
+        console.log(`Incorrect: ${incorrectGuesses}`)
+    }
 }
 
