@@ -5,10 +5,11 @@ let wordBlank = document.querySelector("#word-blank")
 let boardGrid = document.querySelector("#board-grid")
 let guessForm = document.querySelector("#guess-form")
 let guessBlank = document.querySelector("#guess-blank")
-//let letterKeys = document.querySelectorAll(".letter")
+let guessButton = document.querySelector("#guess-button")
 
 
 let word = []
+let currentGuess = "a"
 
 // START THE GAME
 function startGame() {
@@ -54,9 +55,20 @@ function createBoard(){
 
 //ON-SCREEN KEYBOARD PICKUP
 function typeKey(e){
+    if (e.target.classList.contains("letter")){
     guessBlank.value = e.target.dataset.key
+    console.log(guessBlank.value)
+    }
 }
 board.addEventListener("click", typeKey)
 
+
+//SUBMIT GUESS
+function submitGuess(e){
+    e.preventDefault()
+    currentGuess = guessBlank.value.toLowerCase()
+    console.log(currentGuess)
+}
+guessForm.addEventListener("submit", submitGuess)
 //GUESS LOGIC
 
