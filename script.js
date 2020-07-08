@@ -2,6 +2,7 @@ let startButton = document.querySelector("#start-button")
 let startGameModal = document.querySelector("#start-game-modal")
 let winnerModal = document.querySelector("#winner-modal")
 let loserModal = document.querySelector("#loser-modal")
+let playerForm = document.querySelector("#player-form")
 let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
 let timeBlank = document.querySelector("#time-blank")
@@ -39,18 +40,19 @@ let lavaInterval = 0
 function startGame() {
     //e.preventDefault()
 
-    wordForm.style.display = "flex"
+    playerForm.style.display = "flex"
 
     startGameModal.style.display = "none"
 }
 
 startGameModal.addEventListener("click", e => {
     if (e.target.classList == "button"){
-        console.log(e)
         startGame(e)
     }
 })
-//startGame()
+
+//SET PLAYERS
+
 
 //CAPTURE ENTERED WORD AS ARRAY
 function setWord(e) {
