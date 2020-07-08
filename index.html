@@ -15,6 +15,7 @@
         <form id="word-form">
                 <input class="blank" id="word-blank" type="text" placeholder="Enter a word">
                 <input class="blank" id="chance-blank" type="text" placeholder="How Many Guesses?">
+                <input class="blank" id="time-blank" type="text" placeholder="How Many Seconds?">
             <input type="submit" value="Generate Board">
         </form>
         <div id="board">
@@ -64,9 +65,13 @@
             <h3>Incorrect Guesses</h3>
             <ul id="incorrect-guess-list"></ul>
         </div>
+        <div class="side-list" id="timer">
+            <h3>Time Remaining</h3>
+            <h3 id="time-remaining"></h3>
+        </div>
         <div class="side-list" id="chances">
             <h3>Chances Remaining</h3>
-            <h3 id="remaining"></h3>
+            <h3 id="chances-remaining"></h3>
         </div>
     </Section>
     <footer>

@@ -41,7 +41,7 @@ main {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
     font-size: 24px;
     line-height: .9;
@@ -81,6 +81,80 @@ main {
 #start-game-modal {
     
     display: flex;
+}
+
+#word-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board {
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+#board-grid {
+    height: 40%;
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+
+}
+
+.letter-blank {
+    height: 80%;
+    width: 8%;
+    margin: 0 1%;
+    border-bottom: 2px solid #000000;
+
+    font-size: 90px;
+    text-transform: uppercase;
+    
+
+}
+
+#guess-form {
+    height: 20%;
+}
+#guess-form input {
+    width: 10%;
+    margin-top: 1%;
+    font-size: 14px;
+}
+
+#keyboard {
+    height: 30%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.letter {
+    width: 3%;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin: .25% .25%;
+    border: 2px solid #000000;
+    cursor: pointer;
+
+}
+
+#incorrect-guess-list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    
+}
+
+#incorrect-guess-list li {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 1% 3%;
 }
 
 footer {
@@ -198,74 +272,7 @@ input[type=submit]:active {
     box-shadow: 1px 1px 3px #303030;
 }
 
-#board {
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    
-}
 
-#board-grid {
-    height: 40%;
-    display: flex;
-    justify-content: center; 
-    flex-wrap: wrap;
-
-}
-
-.letter-blank {
-    height: 80%;
-    width: 8%;
-    margin: 0 1%;
-    border-bottom: 2px solid #000000;
-
-    font-size: 90px;
-    text-transform: uppercase;
-    
-
-}
-
-#guess-form {
-    height: 20%;
-}
-#guess-form input {
-    width: 10%;
-    margin-top: 1%;
-    font-size: 14px;
-}
-
-#keyboard {
-    height: 30%;
-}
-
-.row {
-    display: flex;
-    justify-content: center;
-}
-
-.letter {
-    width: 3%;
-    line-height: 1.5;
-    text-transform: uppercase;
-    margin: .25% .25%;
-    border: 2px solid #000000;
-    cursor: pointer;
-
-}
-
-#incorrect-guess-list {
-    display: flex;
-    list-style-type: none;
-    flex-wrap: wrap;
-    
-}
-
-#incorrect-guess-list li {
-    font-size: 24px;
-    text-transform: uppercase;
-    margin: 1% 3%;
-}
 
 .end-message {
     text-transform: uppercase;

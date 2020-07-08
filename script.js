@@ -4,13 +4,15 @@ let winnerModal = document.querySelector("#winner-modal")
 let loserModal = document.querySelector("#loser-modal")
 let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
+let timeBlank = document.querySelector("#time-blank")
 let chanceBlank = document.querySelector("#chance-blank")
 let boardGrid = document.querySelector("#board-grid")
 let guessForm = document.querySelector("#guess-form")
 let guessBlank = document.querySelector("#guess-blank")
 let guessButton = document.querySelector("#guess-button")
 let incorrectGuessList = document.querySelector("#incorrect-guess-list")
-let remaining = document.querySelector("#remaining")
+let chancesRemaining = document.querySelector("#chances-remaining")
+let timeRemaining = document.querySelector("#time-remaining")
 let footer = document.querySelector("footer")
 let pompeii = document.querySelector("#pompeii")
 
@@ -21,6 +23,7 @@ let letterBlanks = ""
 
 let word = []
 let chances = 0
+let time = null
 let currentGuess = ""
 let correctGuesses = []
 let incorrectGuesses = []
@@ -63,7 +66,13 @@ function setWord(e) {
     chances = chanceBlank.value
     }
 
-    remaining.innerText = chances
+    if (timeBlank.value.length != 0){
+        time = timeBlank.value
+    }
+    
+
+    chancesRemaining.innerText = chances
+    timeRemaining.innerText = time
     lavaInterval = 60/chances
     smokeInterval = 80/chances
 
@@ -94,7 +103,26 @@ function createBoard(){
 
     board.style.display = "flex"
     guessForm.addEventListener("submit", submitGuess)
+
+    if (time != null){
+    let timer = setInterval(countDown, 1000)
+    }
 }
+
+
+//COUNTDOWN TIMER
+function countDown(){
+    if (time <= 0){
+        clearInterval(timer)
+        checkForWinner()
+    }
+    else{
+    time--
+    }
+    timeRemaining.innerText = time
+}
+
+
 
 //ON-SCREEN KEYBOARD PICKUP
 function typeKey(e){
@@ -170,7 +198,7 @@ function checkGuess(guess){
 
     }
     
-    remaining.innerText = chances
+    chancesRemaining.innerText = chances
 
     checkForWinner()
 }
@@ -196,7 +224,7 @@ function checkForWinner(){
         }) */
         guessForm.removeEventListener("submit", submitGuess)
     }
-    else if (correctGuesses.length < word.length && chances == 0){
+    else if ((correctGuesses.length < word.length && chances == 0) || (correctGuesses.length < word.length && time == 0)){
         let message = document.querySelector("#loss-message")
         message.innerText = wordString
         loserModal.style.display = "flex"
@@ -222,6 +250,7 @@ function resetGame(winnerLoser) {
 
     word = []
     chances = 0
+    time = null
     currentGuess = ""
     correctGuesses = []
     incorrectGuesses = []
@@ -229,7 +258,7 @@ function resetGame(winnerLoser) {
     wordBlank.value = ""
     chanceBlank.value = ""
     incorrectGuessList.innerText = ""
-    remaining.innerText = ""
+    chancesRemaining.innerText = ""
     boardGrid.innerHTML = ""
     
     lavaWidth = 30
