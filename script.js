@@ -50,6 +50,7 @@ function startGame() {
 startGameModal.addEventListener("click", e => {
     if (e.target.classList == "button"){
         startGame(e)
+        wordBlank.focus()
     }
 })
 
@@ -67,19 +68,20 @@ function setWord(e) {
     word = wordBlank.value.toLowerCase().split("")
 
     if (chanceBlank.value.length == 0){
-        chances = 26
+        chances = null
     }
     else {
     chances = chanceBlank.value
+    chancesRemaining.innerText = chances
     }
 
     if (timeBlank.value.length != 0){
         time = timeBlank.value
+        timeRemaining.innerText = `${time}s`
     }
     
 
-    chancesRemaining.innerText = chances
-    timeRemaining.innerText = time
+    
     lavaInterval = 60/chances
     smokeInterval = 80/chances
 
@@ -114,6 +116,8 @@ function createBoard(){
     if (time != null){
     let timer = setInterval(countDown, 1000)
     }
+
+    guessBlank.focus()
 }
 
 
@@ -121,12 +125,11 @@ function createBoard(){
 function countDown(){
     if (time <= 0 || correctGuesses.length == word.length){
         clearInterval(timer)
-        //checkForWinner()
     }
     else{
     time--
     }
-    timeRemaining.innerText = time
+    timeRemaining.innerText = `${time}s`
 }
 
 
@@ -168,6 +171,7 @@ function submitGuess(e){
     //console.log(currentGuess)
     checkGuess(currentGuess)
     guessBlank.value = ""
+    guessBlank.focus()
     }
 }
 
@@ -189,23 +193,26 @@ function checkGuess(guess){
         for (let i=0; i<correct; i++){
             correctGuesses.push(guess)
         }
-            console.log(`Correct: ${correctGuesses}`)
+           // console.log(`Correct: ${correctGuesses}`)
     }
     else {
         incorrectGuesses.push(guess)
-        console.log(`Incorrect: ${incorrectGuesses}`)
+        //console.log(`Incorrect: ${incorrectGuesses}`)
         logIncorrect(guess)
 
         lavaWidth = lavaWidth + lavaInterval
         smokeWidth = smokeWidth + smokeInterval
         lava.style.width = `${lavaWidth}%`
         smoke.style.width = `${smokeWidth}%`
-        console.log(lavaWidth)
+        //console.log(lavaWidth)
+        if (chances != null){
         chances--
+        chancesRemaining.innerText = chances
+        }
 
     }
     
-    chancesRemaining.innerText = chances
+    
 
     checkForWinner()
 }
