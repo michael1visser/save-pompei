@@ -17,9 +17,10 @@ let timeRemaining = document.querySelector("#time-remaining")
 let footer = document.querySelector("footer")
 let pompeii = document.querySelector("#pompeii")
 
-
-
-let letterBlanks = ""
+let player1 = ""
+let player2 = ""
+let p1Score = 0
+let p2Score = 0
 
 
 let word = []
@@ -28,6 +29,7 @@ let time = null
 let currentGuess = ""
 let correctGuesses = []
 let incorrectGuesses = []
+let letterBlanks = ""
 
 let smoke = document.querySelector("#smoke") 
 let lava = document.querySelector("#lava")
@@ -52,6 +54,9 @@ startGameModal.addEventListener("click", e => {
 })
 
 //SET PLAYERS
+function setPlayers(){
+
+}
 
 
 //CAPTURE ENTERED WORD AS ARRAY
