@@ -112,9 +112,9 @@ function createBoard(){
 
 //COUNTDOWN TIMER
 function countDown(){
-    if (time <= 0){
+    if (time <= 0 || correctGuesses.length == word.length){
         clearInterval(timer)
-        checkForWinner()
+        //checkForWinner()
     }
     else{
     time--
@@ -219,9 +219,7 @@ function checkForWinner(){
     if(correctGuesses.length == word.length){
         winnerModal.style.display = "flex"
         winnerLoser = winnerModal
-        /* playAgain.addEventListener("click", () => {
-            resetGame(winnerLoser)
-        }) */
+        console.log(winnerLoser)
         guessForm.removeEventListener("submit", submitGuess)
     }
     else if ((correctGuesses.length < word.length && chances == 0) || (correctGuesses.length < word.length && time == 0)){
@@ -229,9 +227,6 @@ function checkForWinner(){
         message.innerText = wordString
         loserModal.style.display = "flex"
         winnerLoser = loserModal
-        /* playAgain.addEventListener("click", () => {
-            resetGame(winnerLoser)
-        }) */
         guessForm.removeEventListener("submit", submitGuess)
         pompeii.style.backgroundImage = "url(/images/pompeii-after.png)"
     }
@@ -257,6 +252,7 @@ function resetGame(winnerLoser) {
     
     wordBlank.value = ""
     chanceBlank.value = ""
+    timeBlank.value = ""
     incorrectGuessList.innerText = ""
     chancesRemaining.innerText = ""
     boardGrid.innerHTML = ""
