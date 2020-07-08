@@ -31,7 +31,7 @@ let increaseInterval = 0
 function startGame() {
     //e.preventDefault()
 
-    wordForm.style.display = "block"
+    wordForm.style.display = "flex"
 
     startGameModal.style.display = "none"
 }
@@ -41,7 +41,7 @@ startGameModal.addEventListener("click", e => {
         startGame(e)
     }
 })
-startGame()
+//startGame()
 
 //CAPTURE ENTERED WORD AS ARRAY
 function setWord(e) {
@@ -68,6 +68,12 @@ function createBoard(){
         let blank = document.createElement("div")
         blank.classList.add("letter-blank")
         blank.dataset.position = i
+        
+        if (word.length > 9){
+            blank.style.height = "50%"
+            blank.style.fontSize = "45px"
+        }
+        
         boardGrid.appendChild(blank)
     })
     letterBlanks = document.querySelectorAll(".letter-blank")
@@ -91,6 +97,7 @@ function submitGuess(e){
     currentGuess = guessBlank.value.toLowerCase()
     //console.log(currentGuess)
     checkGuess(currentGuess)
+    guessBlank.value = ""
 }
 guessForm.addEventListener("submit", submitGuess)
 

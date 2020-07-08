@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save Pompei!</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -12,8 +13,8 @@
     </header>
     <main>
         <form id="word-form">
-            <input id="word-blank" type="text" placeholder="Enter a word">
-            <input id="chance-blank" type="text" placeholder="How Many Guesses?">
+                <input class="blank" id="word-blank" type="text" placeholder="Enter a word">
+                <input class="blank" id="chance-blank" type="text" placeholder="How Many Guesses?">
             <input type="submit" value="Generate Board">
         </form>
         <div id="board">
@@ -59,11 +60,11 @@
         </div>
     </main>
     <Section id="sidebar">
-        <div id="guesses">
+        <div class="side-list" id="guesses">
             <h3>Incorrect Guesses</h3>
             <ul id="incorrect-guess-list"></ul>
         </div>
-        <div id="chances">
+        <div class="side-list" id="chances">
             <h3>Chances Remaining</h3>
             <h3 id="remaining"></h3>
         </div>
