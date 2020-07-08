@@ -55,7 +55,14 @@ function setWord(e) {
     
     wordString = wordBlank.value
     word = wordBlank.value.toLowerCase().split("")
+
+    if (chanceBlank.value.length == 0){
+        chances = 26
+    }
+    else {
     chances = chanceBlank.value
+    }
+    
     remaining.innerText = chances
     lavaInterval = 40/chances
     smokeInterval = 80/chances
