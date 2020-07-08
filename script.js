@@ -12,6 +12,7 @@ let guessButton = document.querySelector("#guess-button")
 let incorrectGuessList = document.querySelector("#incorrect-guess-list")
 let remaining = document.querySelector("#remaining")
 let footer = document.querySelector("footer")
+let pompeii = document.querySelector("#pompeii")
 
 
 
@@ -25,7 +26,7 @@ let correctGuesses = []
 let incorrectGuesses = []
 
 let lava = document.querySelector("#lava")
-let lavaWidth = 20
+let lavaWidth = 30
 let increaseInterval = 0
 
 // START THE GAME
@@ -52,7 +53,7 @@ function setWord(e) {
     word = wordBlank.value.toLowerCase().split("")
     chances = chanceBlank.value
     remaining.innerText = chances
-    increaseInterval = 70/chances
+    increaseInterval = 40/chances
 
     createBoard()
 }
@@ -190,7 +191,7 @@ function checkForWinner(){
             resetGame(winnerLoser)
         }) */
         guessForm.removeEventListener("submit", submitGuess)
-        footer.style.backgroundImage = "url(/images/pompeii-after.png)"
+        pompeii.style.backgroundImage = "url(/images/pompeii-after.png)"
     }
     document.addEventListener("click", (e) => {
         if (e.target.classList.contains("play-again")){
@@ -217,6 +218,9 @@ function resetGame(winnerLoser) {
     remaining.innerText = ""
     boardGrid.innerHTML = ""
     
+    lavaWidth = 30
+    lava.style.width = `${lavaWidth}%`
+    pompeii.style.backgroundImage = "url(/images/pompeii-before.png)"
     board.style.display = "none"
     activeModal.style.display = "none"
     startGame()
