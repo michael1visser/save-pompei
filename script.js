@@ -80,6 +80,7 @@ function createBoard(){
     letterBlanks = document.querySelectorAll(".letter-blank")
 
     board.style.display = "flex"
+    guessForm.addEventListener("submit", submitGuess)
 }
 
 //ON-SCREEN KEYBOARD PICKUP
@@ -94,7 +95,7 @@ board.addEventListener("click", typeKey)
 
 //SUBMIT GUESS
 function submitGuess(e){
-    e.preventDefault()
+    //e.preventDefault()
     let alreadyGuessed = 0
 
     correctGuesses.forEach(n =>{
@@ -110,18 +111,18 @@ function submitGuess(e){
     })
 
     if (alreadyGuessed > 0){
-        //e.preventDefault()
+        e.preventDefault()
         alert("You've already guessed that letter, please choose another.")
     }
     else {
-    //e.preventDefault()
+    e.preventDefault()
     currentGuess = guessBlank.value.toLowerCase()
     //console.log(currentGuess)
     checkGuess(currentGuess)
     guessBlank.value = ""
     }
 }
-guessForm.addEventListener("submit", submitGuess)
+
 
 //GUESS LOGIC
 
@@ -169,27 +170,34 @@ function logIncorrect(guess){
 
 //CHECK FOR WINNER
 function checkForWinner(){
+
+    let winnerLoser = ""
+
     if(correctGuesses.length == word.length){
         winnerModal.style.display = "flex"
-        let winnerLoser = winnerModal
-        let playAgain = document.querySelector(".play-again")
-        playAgain.addEventListener("click", () => {
+        winnerLoser = winnerModal
+        /* playAgain.addEventListener("click", () => {
             resetGame(winnerLoser)
-        })
+        }) */
         guessForm.removeEventListener("submit", submitGuess)
     }
     else if (correctGuesses.length < word.length && chances == 0){
         let message = document.querySelector("#loss-message")
         message.innerText = wordString
         loserModal.style.display = "flex"
-        let winnerLoser = loserModal
-        let playAgain = document.querySelector(".play-again")
-        playAgain.addEventListener("click", () => {
+        winnerLoser = loserModal
+        /* playAgain.addEventListener("click", () => {
             resetGame(winnerLoser)
-        })
+        }) */
         guessForm.removeEventListener("submit", submitGuess)
         footer.style.backgroundImage = "url(/images/pompeii-after.png)"
     }
+    document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("play-again")){
+            console.log("triggered")
+            resetGame(winnerLoser)
+        }
+    })
 }
 
 //RESET GAME
@@ -205,6 +213,7 @@ function resetGame(winnerLoser) {
     
     wordBlank.value = ""
     chanceBlank.value = ""
+    incorrectGuessList.innerText = ""
     remaining.innerText = ""
     boardGrid.innerHTML = ""
     
