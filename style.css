@@ -121,7 +121,7 @@ footer {
 
 #lava {
     width: 30%;
-    height: 68%;
+    height: 90%;
     float: bottom left;
     transition-property: width;
     transition-duration: 2000ms; 
@@ -135,10 +135,7 @@ footer {
     justify-content: flex-end;
     transform: translate(-107%, -76%);
     z-index: -1;
-    position: absolute;
-    
-
-    
+    position: absolute;    
 }
 #smoke {
     width: 1%;

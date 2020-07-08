@@ -62,9 +62,9 @@ function setWord(e) {
     else {
     chances = chanceBlank.value
     }
-    
+
     remaining.innerText = chances
-    lavaInterval = 40/chances
+    lavaInterval = 60/chances
     smokeInterval = 80/chances
 
     createBoard()
@@ -235,7 +235,7 @@ function resetGame(winnerLoser) {
     lavaWidth = 30
     lava.style.width = `${lavaWidth}%`
     smokeWidth = 0
-    lava.style.width = `${smokeWidth}%`
+    smoke.style.width = `${smokeWidth}%`
     pompeii.style.backgroundImage = "url(/images/pompeii-before.png)"
     board.style.display = "none"
     activeModal.style.display = "none"
