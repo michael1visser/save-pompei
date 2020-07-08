@@ -100,13 +100,14 @@ footer {
 
 #volcano {
     width: 50%;
+    height: 100%;
     background-image: url(images/volcano.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: bottom;
 }
 #lava-container {
-    /* width: 53%; */
+    width: 100%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -126,6 +127,28 @@ footer {
     transition-duration: 2000ms; 
 
 }
+#smoke-container {
+    width: 30%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transform: translate(-107%, -76%);
+    z-index: -1;
+    position: absolute;
+    
+
+    
+}
+#smoke {
+    width: 1%;
+    margin: 0 auto;
+    /* position: relative; */
+    transition-property: width;
+    transition-duration: 2000ms;
+}
+
+
 
 #pompeii {
     width: 50%;

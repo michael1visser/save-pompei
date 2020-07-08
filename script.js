@@ -25,9 +25,12 @@ let currentGuess = ""
 let correctGuesses = []
 let incorrectGuesses = []
 
+let smoke = document.querySelector("#smoke") 
 let lava = document.querySelector("#lava")
+let smokeWidth = 1
 let lavaWidth = 30
-let increaseInterval = 0
+let smokeInterval = 0
+let lavaInterval = 0
 
 // START THE GAME
 function startGame() {
@@ -39,7 +42,8 @@ function startGame() {
 }
 
 startGameModal.addEventListener("click", e => {
-    if (e.target.classList = "button"){
+    if (e.target.classList == "button"){
+        console.log(e)
         startGame(e)
     }
 })
@@ -53,7 +57,8 @@ function setWord(e) {
     word = wordBlank.value.toLowerCase().split("")
     chances = chanceBlank.value
     remaining.innerText = chances
-    increaseInterval = 40/chances
+    lavaInterval = 40/chances
+    smokeInterval = 80/chances
 
     createBoard()
 }
@@ -149,8 +154,10 @@ function checkGuess(guess){
         console.log(`Incorrect: ${incorrectGuesses}`)
         logIncorrect(guess)
 
-        lavaWidth = lavaWidth + increaseInterval
+        lavaWidth = lavaWidth + lavaInterval
+        smokeWidth = smokeWidth + smokeInterval
         lava.style.width = `${lavaWidth}%`
+        smoke.style.width = `${smokeWidth}%`
         console.log(lavaWidth)
         chances--
 
@@ -220,6 +227,8 @@ function resetGame(winnerLoser) {
     
     lavaWidth = 30
     lava.style.width = `${lavaWidth}%`
+    smokeWidth = 0
+    lava.style.width = `${smokeWidth}%`
     pompeii.style.backgroundImage = "url(/images/pompeii-before.png)"
     board.style.display = "none"
     activeModal.style.display = "none"
