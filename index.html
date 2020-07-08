@@ -14,19 +14,20 @@
         <h3 id="p2=score"></h3>
     </header>
     <main>
-        <form class="setup-form" id="player-form">
+        <!-- <form class="setup-form" id="player-form">
                 <input class="blank" id="player1" type="text" placeholder="First Player's Name">
                 <input class="blank" id="player2" type="text" placeholder="Second Player's Name">
                 <input class="blank" id="time-blank" type="text" placeholder="How Many Rounds?">
             <input type="submit" value="Let's Go">
-        </form>
+        </form> -->
         <form class="setup-form" id="word-form">
             <input class="blank" id="word-blank" type="text" placeholder="Enter a word">
-            <input class="blank" id="chance-blank" type="text" placeholder="How Many Guesses?">
-            <input class="blank" id="time-blank" type="text" placeholder="How Many Seconds?">
+            <input class="blank" id="chance-blank" type="text" placeholder="Guess Limit? (Optional)">
+            <input class="blank" id="time-blank" type="text" placeholder="Time Limit? (Optional)">
         <input type="submit" value="Generate Board">
     </form>
         <div id="board"> 
+            <div id="board-grid"></div>
             <form id="guess-form">
                 <input id="guess-blank" type="text" maxlength="1" placeholder="Enter a letter">
                 <input id="guess-button" type="submit" value="Guess">
@@ -76,7 +77,7 @@
             <h3 id="time-remaining"></h3>
         </div>
         <div class="side-list" id="chances">
-            <h3>Chances Remaining</h3>
+            <h3>Guesses Remaining</h3>
             <h3 id="chances-remaining"></h3>
         </div>
     </Section>

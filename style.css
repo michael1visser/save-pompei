@@ -91,6 +91,9 @@ main {
     flex-wrap: wrap;
     justify-content: center;
 }
+#player-form {
+    display: none;
+}
 #word-form {
     display: none;
 }
@@ -103,13 +106,13 @@ main {
     
 }
 
-/* #board-grid {
+#board-grid {
     height: 40%;
     display: flex;
     justify-content: center; 
     flex-wrap: wrap;
 
-} */
+}
 
 .letter-blank {
     height: 80%;
@@ -271,6 +274,10 @@ input {
 }
 input:focus {
     outline: none;
+}
+input[type=text]{
+    line-height: 1.5;
+    width: 29%;
 }
 input[type=submit] {
     box-shadow: 2px 2px 5px #303030;

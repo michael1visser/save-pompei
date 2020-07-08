@@ -2,7 +2,7 @@ let startButton = document.querySelector("#start-button")
 let startGameModal = document.querySelector("#start-game-modal")
 let winnerModal = document.querySelector("#winner-modal")
 let loserModal = document.querySelector("#loser-modal")
-let playerForm = document.querySelector("#player-form")
+//let playerForm = document.querySelector("#player-form")
 let wordForm = document.querySelector("#word-form")
 let wordBlank = document.querySelector("#word-blank")
 let timeBlank = document.querySelector("#time-blank")
@@ -17,10 +17,10 @@ let timeRemaining = document.querySelector("#time-remaining")
 let footer = document.querySelector("footer")
 let pompeii = document.querySelector("#pompeii")
 
-let player1 = ""
+/* let player1 = ""
 let player2 = ""
 let p1Score = 0
-let p2Score = 0
+let p2Score = 0 */
 
 
 let word = []
@@ -42,7 +42,7 @@ let lavaInterval = 0
 function startGame() {
     //e.preventDefault()
 
-    playerForm.style.display = "flex"
+    wordForm.style.display = "flex"
 
     startGameModal.style.display = "none"
 }
@@ -53,10 +53,10 @@ startGameModal.addEventListener("click", e => {
     }
 })
 
-//SET PLAYERS
+/* //SET PLAYERS
 function setPlayers(){
 
-}
+} */
 
 
 //CAPTURE ENTERED WORD AS ARRAY
