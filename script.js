@@ -43,6 +43,7 @@ function startGame() {
 startGameModal.addEventListener("click", e => {
     if (e.target.classList == "button"){
         startGame(e)
+
         wordBlank.focus()
     }
 })
@@ -73,8 +74,6 @@ function setWord(e) {
         time = timeBlank.value
         timeRemaining.innerText = `${time}s`
     }
-    
-
     
     lavaInterval = 60/chances
     smokeInterval = 80/chances
@@ -128,12 +127,10 @@ function countDown(){
 }
 
 
-
 //ON-SCREEN KEYBOARD PICKUP
 function typeKey(e){
     if (e.target.classList.contains("letter")){
     guessBlank.value = e.target.dataset.key
-    //console.log(guessBlank.value)
     }
 }
 board.addEventListener("click", typeKey)
@@ -141,7 +138,8 @@ board.addEventListener("click", typeKey)
 
 //SUBMIT GUESS
 function submitGuess(e){
-    //e.preventDefault()
+    e.preventDefault()
+    
     let alreadyGuessed = 0
 
     correctGuesses.forEach(n =>{
@@ -157,16 +155,14 @@ function submitGuess(e){
     })
 
     if (alreadyGuessed > 0){
-        e.preventDefault()
+        
         alert("You've already guessed that letter, please choose another.")
     }
     else {
-    e.preventDefault()
-    currentGuess = guessBlank.value.toLowerCase()
-    //console.log(currentGuess)
-    checkGuess(currentGuess)
-    guessBlank.value = ""
-    guessBlank.focus()
+        currentGuess = guessBlank.value.toLowerCase()
+        checkGuess(currentGuess)
+        guessBlank.value = ""
+        guessBlank.focus()
     }
 }
 
