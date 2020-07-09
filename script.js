@@ -65,6 +65,11 @@ function setWord(e) {
     e.preventDefault()
     
     wordString = wordBlank.value
+
+    if (wordString.length == 0){
+        alert("Please enter a word to begin")
+    }
+    else{
     word = wordBlank.value.toLowerCase().split("")
 
     if (chanceBlank.value.length == 0){
@@ -86,6 +91,7 @@ function setWord(e) {
     smokeInterval = 80/chances
 
     createBoard()
+    }
 }
 wordForm.addEventListener("submit", setWord)
 

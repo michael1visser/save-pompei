@@ -189,6 +189,7 @@ footer {
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: bottom;
+    z-index: 2;
 }
 #lava-container {
     width: 60%;
@@ -217,7 +218,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    transform: translate(-107%, -76%);
+    transform: translate(-100%, -76%);
     z-index: -1;
     position: absolute;    
 }
