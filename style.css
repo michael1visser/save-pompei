@@ -5,7 +5,9 @@
 body {
     width: 98vw;
     height: 100vh;
-    background-color: #b1ffff;
+    background-color: #fcf8ef;
+    background-image: url(/images/mosaic.png);
+    background-size: 30%;
 
     display: grid;
     grid-template-rows: .5fr 3fr 3.5fr;
@@ -34,13 +36,11 @@ h1{
 main {
     grid-row: 2;
     grid-column: 1;
-    /* border: 2px dashed #000000; */
 }
 
 #sidebar {
     grid-row: 1 /span 2;
     grid-column: 2;
-    /* border: 2px dashed #000000; */
 
     display: flex;
     flex-direction: column;
@@ -50,7 +50,9 @@ main {
     line-height: .9;
 }
 .side-list{
+    background-color: #fcf8ef;
     border: 4px double #000000;
+    box-shadow: 1px 1px 3px #303030;
 }
 .side-list h3 {
     margin: 6% 0 0 0;
@@ -62,7 +64,7 @@ main {
     transform: translate3d(30%, 20%, 0);
     height: 70%;
     width: 60%;
-    background-color: #ffffff;
+    background-color: #fcf8ef;
     border: 6px double #000000;
     box-shadow: 6px 6px 10px #303030;
 

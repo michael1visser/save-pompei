@@ -109,22 +109,24 @@ function createBoard(){
 
     if (time != null){
     let timer = setInterval(countDown, 1000)
+   
+        //COUNTDOWN TIMER
+        function countDown(){
+        if (time <= 0 || correctGuesses.length == word.length || chances == 0){
+            clearInterval(timer)
+            console.log(timer)
+        }
+        else{
+        time--
+        }
+        timeRemaining.innerText = `${time}s`
+        }
     }
 
     guessBlank.focus()
 }
 
 
-//COUNTDOWN TIMER
-function countDown(){
-    if (time <= 0 || correctGuesses.length == word.length){
-        clearInterval(timer)
-    }
-    else{
-    time--
-    }
-    timeRemaining.innerText = `${time}s`
-}
 
 
 //ON-SCREEN KEYBOARD PICKUP
@@ -224,7 +226,7 @@ function checkForWinner(){
 
         loserModal.style.display = "flex"
         guessForm.removeEventListener("submit", submitGuess)
-        
+
         pompeii.style.backgroundImage = "url(/images/pompeii-after.png)"
     }
 
@@ -253,6 +255,7 @@ function resetGame(winnerLoser) {
     timeBlank.value = ""
     incorrectGuessList.innerText = ""
     chancesRemaining.innerText = ""
+    timeRemaining.innerText = ""
     boardGrid.innerHTML = ""
     
     lavaWidth = 30
