@@ -167,7 +167,7 @@ function submitGuess(e){
 }
 
 
-//GUESS LOGIC
+//CHECK GUESS AGAINST WORD ARRAY
 
 function checkGuess(guess){
     let correct = 0
@@ -178,33 +178,28 @@ function checkGuess(guess){
             letterBlanks[i].innerText = n
             correct++
         }
-        })
+    })
     
     if (correct > 0){
-        for (let i=0; i<correct; i++){
+        for (let j=0; j<correct; j++){
             correctGuesses.push(guess)
         }
-           // console.log(`Correct: ${correctGuesses}`)
     }
     else {
         incorrectGuesses.push(guess)
-        //console.log(`Incorrect: ${incorrectGuesses}`)
         logIncorrect(guess)
 
         lavaWidth = lavaWidth + lavaInterval
         smokeWidth = smokeWidth + smokeInterval
         lava.style.width = `${lavaWidth}%`
         smoke.style.width = `${smokeWidth}%`
-        //console.log(lavaWidth)
+
         if (chances != null){
         chances--
         chancesRemaining.innerText = chances
         }
 
     }
-    
-    
-
     checkForWinner()
 }
 
@@ -226,10 +221,13 @@ function checkForWinner(){
     else if ((correctGuesses.length < word.length && chances == 0) || (correctGuesses.length < word.length && time == 0)){
         let message = document.querySelector("#loss-message")
         message.innerText = wordString
+
         loserModal.style.display = "flex"
         guessForm.removeEventListener("submit", submitGuess)
+        
         pompeii.style.backgroundImage = "url(/images/pompeii-after.png)"
     }
+
     document.addEventListener("click", (e,) => {
         if (e.target.classList.contains("play-again")){
             let winnerLoser = e.target.parentElement
