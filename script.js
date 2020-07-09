@@ -234,25 +234,20 @@ function logIncorrect(guess){
 //CHECK FOR WINNER
 function checkForWinner(){
 
-    let winnerLoser = ""
-
     if(correctGuesses.length == word.length){
         winnerModal.style.display = "flex"
-        winnerLoser = winnerModal
-        console.log(winnerLoser)
         guessForm.removeEventListener("submit", submitGuess)
     }
     else if ((correctGuesses.length < word.length && chances == 0) || (correctGuesses.length < word.length && time == 0)){
         let message = document.querySelector("#loss-message")
         message.innerText = wordString
         loserModal.style.display = "flex"
-        winnerLoser = loserModal
         guessForm.removeEventListener("submit", submitGuess)
         pompeii.style.backgroundImage = "url(/images/pompeii-after.png)"
     }
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", (e,) => {
         if (e.target.classList.contains("play-again")){
-            console.log("triggered")
+            let winnerLoser = e.target.parentElement
             resetGame(winnerLoser)
         }
     })
@@ -260,8 +255,8 @@ function checkForWinner(){
 
 //RESET GAME
 function resetGame(winnerLoser) {
+    
     let activeModal = winnerLoser
-    console.log(activeModal)
 
     word = []
     chances = 0
