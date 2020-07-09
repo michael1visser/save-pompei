@@ -115,6 +115,7 @@ function createBoard(){
         if (time <= 0 || correctGuesses.length == word.length || chances == 0){
             clearInterval(timer)
             console.log(timer)
+            checkForWinner()
         }
         else{
         time--
