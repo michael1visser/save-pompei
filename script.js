@@ -263,7 +263,7 @@ function resetGame(winnerLoser) {
     lava.style.width = `${lavaWidth}%`
     smokeWidth = 0
     smoke.style.width = `${smokeWidth}%`
-    pompeii.style.backgroundImage = "url(/images/pompeii-before.png)"
+    pompeii.style.backgroundImage = "url(./images/pompeii-before.png)"
     board.style.display = "none"
     activeModal.style.display = "none"
     startGame()
