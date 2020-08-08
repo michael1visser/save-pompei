@@ -6,7 +6,7 @@ body {
     width: 98vw;
     height: 100vh;
     background-color: #fcf8ef;
-    background-image: url(/images/mosaic.png);
+    background-image: url(./images/mosaic.png);
     background-size: 30%;
 
     display: grid;
