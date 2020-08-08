@@ -228,7 +228,7 @@ function checkForWinner(){
         loserModal.style.display = "flex"
         guessForm.removeEventListener("submit", submitGuess)
 
-        pompeii.style.backgroundImage = "url(/images/pompeii-after.png)"
+        pompeii.style.backgroundImage = "url(./images/pompeii-after.png)"
     }
 
     document.addEventListener("click", (e,) => {
