@@ -187,7 +187,7 @@ footer {
 #volcano {
     width: 50%;
     height: 100%;
-    background-image: url(images/volcano.png);
+    background-image: url(./images/volcano.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: bottom;
@@ -236,7 +236,7 @@ footer {
 
 #pompeii {
     width: 50%;
-    background-image: url(images/pompeii-before.png);
+    background-image: url(./images/pompeii-before.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: right;
